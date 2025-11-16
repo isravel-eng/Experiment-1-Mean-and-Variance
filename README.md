@@ -47,14 +47,52 @@ It is calculated as:
 
 # Program: 
 
+**_Name : ISRAVEL Y <br>
+ Reg No : 25018187 <br>
+ Slot Name : 3P1-1<br>
+ [colab link](https://colab.research.google.com/drive/1IlRZRK1bhjGjY7jzSMETlQam2r6l5uyR?usp=sharing)_**  
 
+ ```py
+import numpy as np
 
+Data=[int(i) for i in input("Enter arrival data: ").split()]
 
+length=len(Data)
+Max=max(Data)
+x=[]
+freq=[]
 
+#frequency of each arrival
+for i in range(Max+1):
+  c=0
+  for j in range(length):
+    if Data[j]==i:
+      c+=i
+  freq.append(c)
+  x.append(i)
+sum_freq=np.sum(freq)
 
+#probability for each occurance
+p=[freq[i]/sum_freq for i in x]
 
+#Mean
+EX=np.inner(x,p)
+print("Mean",EX)
+
+#second moment
+EX2=np.inner(np.square(x),p)
+
+#Variance
+var=EX2-(EX**2)
+print("Variance",var)
+
+#Standard deviation
+Std_dev=np.sqrt(var)
+print("Standard deviation",Std_dev)
+```
 
 # Output:
+<img width="446" height="107" alt="image" src="https://github.com/user-attachments/assets/f6537b24-5bd7-42b9-a510-4bc146c0a021" />
 
 
 
